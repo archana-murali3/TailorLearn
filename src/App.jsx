@@ -46,7 +46,7 @@ function AppContent() {
   };
 
   const handleDashboardClick = () => {
-    setCurrentView('dashboard');
+    setCurrentView(user ? 'dashboard' : 'landing');
     setSelectedCourseId(null);
     setSelectedLessonId(null);
     window.location.hash = '';
@@ -69,7 +69,7 @@ function AppContent() {
   };
 
   const handleBackFromCourse = () => {
-    setCurrentView('dashboard');
+    setCurrentView(user ? 'dashboard' : 'landing');
     setSelectedCourseId(null);
     window.location.hash = '';
   };
@@ -79,14 +79,14 @@ function AppContent() {
       setCurrentView('course');
       window.location.hash = `course-${selectedCourseId}`;
     } else {
-      setCurrentView('dashboard');
+      setCurrentView(user ? 'dashboard' : 'landing');
       window.location.hash = '';
     }
     setSelectedLessonId(null);
   };
 
   const handleBackFromProfile = () => {
-    setCurrentView('dashboard');
+    setCurrentView(user ? 'dashboard' : 'landing');
   };
 
   if (loading) {
